@@ -21,7 +21,7 @@ func AwaitIdleTime(duration time.Duration) {
 
 	//while the user is active
 	Len := out.Len()
-	time.Sleep(time.Millisecond * refresh)
+	time.Sleep(RefreshRate)
 
 	dur := time.Nanosecond
 	// while true, compare the last output from xinput to the current one, if they have different sizes, there was user activity
@@ -30,7 +30,7 @@ func AwaitIdleTime(duration time.Duration) {
 
 		//if there was no activity
 		if Len == newLen {
-			dur = dur + refresh*time.Millisecond
+			dur = dur + RefreshRate
 			//clear the buffer
 			if Len > 1024*128 {
 				fmt.Println("reset")
@@ -49,7 +49,7 @@ func AwaitIdleTime(duration time.Duration) {
 			break
 		}
 		//fmt.Println(Len) //for debugging only
-		time.Sleep(time.Millisecond * refresh)
+		time.Sleep(RefreshRate)
 	}
 
 	if err != nil {

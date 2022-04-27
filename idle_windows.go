@@ -21,7 +21,7 @@ var (
 )
 
 func AwaitIdleTime(duration time.Duration) {
-	t := time.NewTicker(refresh * time.Millisecond)
+	t := time.NewTicker(RefreshRate)
 	for range t.C {
 		idle := IdleTime()
 		//fmt.Println(idle)

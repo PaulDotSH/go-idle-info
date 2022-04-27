@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/PaulDotSH/go-grab-ip"
+	"github.com/PaulDotSH/go-idle-info"
 	"time"
 )
 
